@@ -6,6 +6,10 @@
 + instal uwsgi
 pip install uwsgi
 
++ instal urllib
+
+pip install urllib3
+
 ====== run program ======
 
 
