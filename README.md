@@ -19,6 +19,8 @@ uwsgi --http :9090 --wsgi-file test_kerja.py
 
  uwsgi --http :9090 --wsgi-file test_kerja2.py
 
+silahkan akses link dibawah ini di browser kesayangan anda
+http://localhost:9090/
 
  ====== informasi ======
 
