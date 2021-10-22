@@ -9,25 +9,18 @@ def application(env, start_response):
     response = urllib.request.urlopen(url).read()
 
     jsonResponse = json.loads(response.decode('utf-8'))
-    data = {
-    'nama properties' : jsonResponse['crs']['properties'] ['name'],
+   
+    datajson = jsonResponse['features'][0]
 
-    }
-
-    list_properties  = []
-    for datajson in jsonResponse['features']:
-        data_list = {'lokasi' : datajson['properties']['WADMKK'], 'luas Area': datajson['properties']['Luas_Ha'] }
-        list_properties.append(data_list)
-        geometry_array = []
-        for geometry in datajson['geometry']['coordinates'][0]:
-            koordinat = str(geometry[1])+','+str(geometry[0])
-            geometry_array.append(koordinat)
+    
+    geometry_array = []
+    for geometry in datajson['geometry']['coordinates'][0]:
+        koordinat = str(geometry[1])+','+str(geometry[0])
+        geometry_array.append(koordinat)
 
 
-        data_list['koordinat'] = geometry_array
+    data ={'geometry_locs' : geometry_array}
 
-
-    data['list_properties'] = list_properties
 
     result =  json.dumps(data)
     result = result.encode('utf-8')
